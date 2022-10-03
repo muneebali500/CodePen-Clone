@@ -5,7 +5,7 @@ interface LocalStorageProps {
   clearLocalStorage(): void;
 }
 
-function Header(props: LocalStorageProps) {
+export default function Header(props: LocalStorageProps) {
   console.log(`header called`);
 
   return (
@@ -13,22 +13,13 @@ function Header(props: LocalStorageProps) {
       <h1>CodePen Clone</h1>
 
       <div className="nav-btns">
-        <button
-          className="save-btn nav-btn"
-          onClick={() => props.saveToLocalStorage()}
-        >
+        <button className="save-btn nav-btn" onClick={props.saveToLocalStorage}>
           Save
         </button>
-        <button
-          className="clear-btn nav-btn"
-          onClick={() => props.clearLocalStorage()}
-        >
+        <button className="clear-btn nav-btn" onClick={props.clearLocalStorage}>
           Clear
         </button>
       </div>
     </nav>
   );
 }
-
-const MemoizedHeader = React.memo(Header);
-export default MemoizedHeader;
