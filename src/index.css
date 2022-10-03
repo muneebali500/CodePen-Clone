@@ -140,3 +140,18 @@ iFrame {
 .ace-monokai .ace_gutter-active-line {
   background-color: #1d1e22;
 }
+
+/* width */
+.ace_scrollbar-v::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.ace_scrollbar-v::-webkit-scrollbar-track {
+  background: #a3a3a3;
+}
+
+/* Handle */
+.ace_scrollbar-v::-webkit-scrollbar-thumb {
+  background: #888;
+}
