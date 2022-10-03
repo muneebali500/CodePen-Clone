@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import CodeEditor from "./components/Editor";
-import MemoizedHeader from "./components/Header";
-// import Header from "./components/Header";
+import Header from "./components/Header";
 
 function App() {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
@@ -18,8 +17,20 @@ function App() {
 
   useEffect(() => {
     // all the editors will be visible when index = -1 and only one editor will be visible when index >= 0
-    window.innerWidth >= 700 ? setSelectedTabIndex(-1) : setSelectedTabIndex(0);
+    function isMobile(): void {
+      window.innerWidth >= 700
+        ? setSelectedTabIndex(-1)
+        : setSelectedTabIndex(0);
+    }
 
+    window.addEventListener(`resize`, isMobile);
+
+    return () => {
+      window.removeEventListener(`resize`, isMobile);
+    };
+  });
+
+  useEffect(() => {
     // getting data from local storage if avialable or null if no data is there
     const htmlJSON = localStorage.getItem(`html`);
     const htmlObj =
@@ -50,7 +61,7 @@ function App() {
 
   return (
     <>
-      <MemoizedHeader
+      <Header
         saveToLocalStorage={saveToLocalStorage}
         clearLocalStorage={clearLocalStorage}
       />
