@@ -33,9 +33,6 @@ export default function CodeEditor(props: editorProps) {
         showGutter={true}
         editorProps={{ $blockScrolling: true }}
         setOptions={{
-          // enableBasicAutocompletion: false,
-          // enableLiveAutocompletion: false,
-          // enableSnippets: true,
           showLineNumbers: true,
           tabSize: 2,
           wrap: true,
