@@ -1,4 +1,4 @@
-# CodePen Clone - Fully Responsive
+# CodePen Clone - React and TypeScript
 
 ## Introduction
 
